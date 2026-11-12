@@ -1,6 +1,6 @@
 # Homelab Monitoring Stack
 
-Metrics, dashboards, and alerting for a Proxmox-hosted Docker homelab, built with Prometheus, Grafana, and Alertmanager and deployed with Docker Compose. Everything, including alert rules, is version-controlled.
+Metrics, dashboards, and alerting for a Proxmox-hosted Docker homelab, built with Prometheus, Grafana, and Alertmanager and deployed with Docker Compose.
 
 ## Architecture
 
@@ -81,8 +81,5 @@ _Screenshots coming soon._
 
 - [x] Metrics: host, containers, DNS
 - [x] Alerting with Discord notifications
-- [ ] Go service over a Postgres NBA dataset, with versioned schema migrations
-- [ ] Service-level objective with a dashboard and burn-rate alerts
-- [ ] CI/CD with GitHub Actions: build, push to GHCR, promote from staging to prod, tested rollback
 - [ ] Logs with Loki
-- [ ] Terraform for VM provisioning
+- [ ] Dashboards provisioned as code
