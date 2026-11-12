@@ -9,6 +9,7 @@ services:
     volumes:
       - ./prometheus/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro
       - prometheus-data:/prometheus
+      - ./prometheus/rules:/etc/prometheus/rules:ro
     ports:
       - "9090:9090"
 
@@ -55,6 +56,19 @@ services:
       ADGUARD_PASSWORDS: ${ADGUARD_PASSWORD}
       INTERVAL: 15s
 
+  alertmanager:
+    image: prom/alertmanager:latest
+    container_name: alertmanager
+    restart: unless-stopped
+    command:
+      - --config.file=/etc/alertmanager/alertmanager.yaml
+    volumes:
+      - ./alertmanager:/etc/alertmanager:ro
+      - alertmanager-data:/alertmanager
+    ports:
+      - "9093:9093"
+
 volumes:
   prometheus-data:
   grafana-data:
+  alertmanager-data:
